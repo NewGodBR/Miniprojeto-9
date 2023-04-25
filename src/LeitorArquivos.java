@@ -38,6 +38,7 @@ public class LeitorArquivos {
         if (data.startsWith("Titulo: ")) {
           title = data.substring(8);
         } else if(data.startsWith("Imagem:")){ 
+          // Estrutura de repetição até ler toda a imagem ASCII que tem por fim uma linha vazia.
          while (myReader.hasNextLine()){
           String line = myReader.nextLine();
           if (line.isEmpty()){
@@ -47,6 +48,7 @@ public class LeitorArquivos {
           }
          }
       }else if (data.startsWith("Historia: ")) {
+        // Estrutura de repetição para ler toda a historia que tem por fim uma linha de Escolhas
           hist = data.substring(10);
 
           while (myReader.hasNextLine()) {
