@@ -5,6 +5,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 public class Controller {
@@ -13,7 +14,7 @@ public class Controller {
   HashMap<String, Cap> capitulos;
 
   @FXML
-  private VBox campoBotao;
+  private HBox botaoHBox;
 
     @FXML
     private Button botaoStart;
@@ -47,7 +48,7 @@ public class Controller {
 
     }
     void mostrarCapitulo(Cap capitulo){
-      campoBotao.getChildren().clear();
+      botaoHBox.getChildren().clear();
       labelTitulo.setText(capitulo.getTitulo());
       labelTexto.setText(
         capitulo.getText()+ "\n" +
@@ -63,7 +64,7 @@ public class Controller {
             }
           });
 
-          campoBotao.getChildren().add(botao);
+          botaoHBox.getChildren().add(botao);
         }
         botaoStart.setText("Reiniciar");
       } 
