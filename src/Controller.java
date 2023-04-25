@@ -56,7 +56,7 @@ public class Controller {
       labelASCII.setText(capitulo.getImagem());
 
       // Adicionar escolhas em botões, quantas houver 
-      if (capitulo.getChoices().size() > 0 ){
+      if (capitulo.getChoices()!=null){
         for (Escolha escolha : capitulo.getChoices()){
 
           // Definir função dos botões
