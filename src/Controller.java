@@ -1,20 +1,19 @@
 import java.util.HashMap;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
 
 public class Controller {
 
   HashMap<String, Personagem> personagens;
   HashMap<String, Cap> capitulos;
 
-    @FXML
-    private Button botaoEsc1;
-
-    @FXML
-    private Button botaoEsc2;
+  @FXML
+  private VBox campoBotao;
 
     @FXML
     private Button botaoStart;
@@ -48,44 +47,26 @@ public class Controller {
 
     }
     void mostrarCapitulo(Cap capitulo){
+      campoBotao.getChildren().clear();
       labelTitulo.setText(capitulo.getTitulo());
       labelTexto.setText(
         capitulo.getText()+ "\n" +
         capitulo.alterarEnergia());
-      botaoEsc1.setText(capitulo.getChoices().get(0).getName());
-      botaoEsc2.setText(capitulo.getChoices().get(1).getName());
+      if (capitulo.getChoices().size() > 0 ){
+        for (Escolha escolha : capitulo.getChoices()){
+
+          Button botao = new Button(escolha.getName());
+          botao.setOnAction(new EventHandler<ActionEvent>(){
+            @Override
+            public void handle(ActionEvent event){
+              mostrarCapitulo(escolha.getNext());
+            }
+          });
+
+          campoBotao.getChildren().add(botao);
+        }
+      }
       }
 
 }
 
-
-// public void Mostrar() {
-  
-//   if (choices != null) {
-//     int i = 1;
-
-//     for (Escolha escolha : choices) {
-//       System.out.println(i + ". [" + escolha.getName() + "]");
-//       i++;
-//     }
-
-//     Scanner scanner = new Scanner(System.in);
-//     String playerCh = scanner.nextLine();
-//     int count = 0;
-//     for (Escolha escolha : choices) {
-//       if (playerCh.equals(escolha.getName())) {
-//         Cap proximo = escolha.getNext();
-//         if (proximo != null) {
-//           proximo.Mostrar();
-//           count += 1;
-//           return;
-//         }
-//       } 
-//       }
-//       if (count == 0){
-//         System.out.println("Escolha Inválida");
-//       }
-
-//       scanner.close();
-//     }
-//   }

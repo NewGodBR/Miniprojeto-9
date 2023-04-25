@@ -54,13 +54,12 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button fx:id="botaoEsc2" layoutX="494.0" layoutY="320.0" mnemonicParsing="false" onAction="#carregarEscolha2" prefHeight="61.0" prefWidth="118.0" text="Escolha 2" />
-            <Button fx:id="botaoEsc1" layoutX="353.0" layoutY="318.0" mnemonicParsing="false" onAction="#carregarEscolha1" prefHeight="61.0" prefWidth="118.0" text="Escolha 1" />
-            <Label fx:id="labelTitulo" alignment="CENTER" layoutX="33.0" layoutY="19.0" prefHeight="28.0" prefWidth="254.0" text="Titulo do Capitulo" textAlignment="CENTER">
+            <Label fx:id="labelTitulo" alignment="CENTER" layoutX="33.0" layoutY="19.0" prefHeight="28.0" prefWidth="254.0" text="Titulo do Capitulo" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
+            <VBox fx:id="campoBotao" layoutX="399.0" layoutY="219.0" prefHeight="200.0" prefWidth="100.0" />
          </children>
          <padding>
             <Insets top="11.0" />
