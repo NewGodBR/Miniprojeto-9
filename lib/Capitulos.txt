@@ -5,7 +5,7 @@ o aquecimento global, que estava avançando drasticamente nos
 ultimos anos, esbarra 'sem querer' em Ingrid
 Luccas se encanta com a graça de Ingrid e seu livro misterioso em mãos e se desculpa.
 Ingrid decide perguntar o que ele procura ou se despedir?
-Escolhas: perguntar:continua despedir:missao
+Escolhas: Perguntar:Continua Despedir:Missao
 Personagem: Protagonista
 Alteracao: -20
 
@@ -15,7 +15,7 @@ tentando parecer 'interessante' e pergunta sobre o livro em suas mãos,
 Ingrid explica que ela estava organizando os livros e
 decide continuar conversando com o rapaz até que seu celular toca
 Luccas atende ou decide ignorar a ligação?
-Escolhas: atende:ligacao ignorar:casamento
+Escolhas: Atende:Ligacao Ignorar:Casamento
 Personagem: Antagonista
 Alteracao: -10
 

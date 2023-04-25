@@ -31,7 +31,7 @@ public class Controller {
     void botaoCarregar(ActionEvent event) {
       personagens = LeitorArquivos.lerPersonagens();
       capitulos = LeitorArquivos.lerCapitulos();
-
+      System.out.println(capitulos);
       Cap raiz = capitulos.get("Encontro do Desastre");
       mostrarCapitulo(raiz);
       
@@ -65,8 +65,10 @@ public class Controller {
 
           campoBotao.getChildren().add(botao);
         }
-      }
+        botaoStart.setText("Reiniciar");
+      } 
+    }
       }
 
-}
+
 
