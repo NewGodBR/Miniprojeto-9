@@ -1,23 +1,21 @@
 import java.util.HashMap;
-
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 
 public class Controller {
 
   HashMap<String, Personagem> personagens;
   HashMap<String, Cap> capitulos;
 
-  @FXML
-  private HBox botaoHBox;
+    @FXML
+    private Button botaoInicio;
 
     @FXML
-    private Button botaoStart;
+    private HBox hBoxbotao;
 
     @FXML
     private Label labelASCII;
@@ -32,27 +30,18 @@ public class Controller {
     void botaoCarregar(ActionEvent event) {
       personagens = LeitorArquivos.lerPersonagens();
       capitulos = LeitorArquivos.lerCapitulos();
-      System.out.println(capitulos);
       Cap raiz = capitulos.get("Encontro do Desastre");
       mostrarCapitulo(raiz);
       
     }
 
-    @FXML
-    void carregarEscolha1(ActionEvent event) {
-      
-  }
-
-    @FXML
-    void carregarEscolha2(ActionEvent event) {
-
-    }
     void mostrarCapitulo(Cap capitulo){
-      botaoHBox.getChildren().clear();
+      hBoxbotao.getChildren().clear();
       labelTitulo.setText(capitulo.getTitulo());
       labelTexto.setText(
         capitulo.getText()+ "\n" +
         capitulo.alterarEnergia());
+      labelASCII.setText(capitulo.getImagem());
       if (capitulo.getChoices().size() > 0 ){
         for (Escolha escolha : capitulo.getChoices()){
 
@@ -63,10 +52,9 @@ public class Controller {
               mostrarCapitulo(escolha.getNext());
             }
           });
-
-          botaoHBox.getChildren().add(botao);
+          hBoxbotao.getChildren().add(botao);
         }
-        botaoStart.setText("Reiniciar");
+        botaoInicio.setText("Reiniciar");
       } 
     }
       }

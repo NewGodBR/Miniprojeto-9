@@ -1,24 +1,25 @@
 import java.util.ArrayList;
 
 public class Cap {
+
+  private String imagem;
   private String text;
   private String titulo;
-
-  
   private ArrayList<Escolha> choices;
-  
   private Personagem chars;
   private int atentionV;
   
-  public Cap(
-    String texto, String titulo, ArrayList<Escolha> escolhas, Personagem personagem, int atencao) {
-      this.text = texto;
-      this.titulo = titulo;
-      this.choices = escolhas;
-      this.chars = personagem;
-      this.atentionV = atencao;
+  public Cap(String imagem, String text, String titulo, ArrayList<Escolha> choices, Personagem chars, int atentionV) {
+    this.imagem = imagem;
+    this.text = text;
+    this.titulo = titulo;
+    this.choices = choices;
+    this.chars = chars;
+    this.atentionV = atentionV;
+  }
+    public String getImagem() {
+      return imagem;
     }
-    
     public String getTitulo() {
       return titulo;
     }

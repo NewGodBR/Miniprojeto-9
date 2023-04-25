@@ -22,6 +22,7 @@ public class LeitorArquivos {
 
       String title = "";
       String hist = "";
+      String imagem = "";
       ArrayList<Escolha> choice = new ArrayList<Escolha>();
       Personagem perso = null;
       int changeA = 0;
@@ -36,7 +37,16 @@ public class LeitorArquivos {
 
         if (data.startsWith("Titulo: ")) {
           title = data.substring(8);
-        } else if (data.startsWith("Historia: ")) {
+        } else if(data.startsWith("Imagem:")){ 
+         while (myReader.hasNextLine()){
+          String line = myReader.nextLine();
+          if (line.isEmpty()){
+            break;
+          } else {
+            imagem = imagem + "\n" + line;
+          }
+         }
+      }else if (data.startsWith("Historia: ")) {
           hist = data.substring(10);
 
           while (myReader.hasNextLine()) {
@@ -58,12 +68,13 @@ public class LeitorArquivos {
         } else if (data.startsWith("Alteracao: ")) {
           changeA = Integer.parseInt(data.substring(12));
 
-          Cap cap = new Cap(hist,title, choice, perso, changeA);
+          Cap cap = new Cap(imagem,hist,title, choice, perso, changeA);
           caps.put(title, cap);
 
           // Reinicia as variáveis para ler o próximo capítulo
           title = "";
           hist = "";
+          imagem = "";
           choice = new ArrayList<Escolha>();
           perso = null;
           changeA = 0;
