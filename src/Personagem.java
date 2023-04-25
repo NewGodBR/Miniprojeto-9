@@ -10,13 +10,15 @@ public class Personagem {
 		return this.atention;
 	}
 
-	public void setAtention(int atencao) {
+	public String setAtention(int atencao) {
 		this.atention += atencao;
+		String condicao = "";
 		if (this.atention > 100) {
 			this.atention = 100;
 		} else if (this.atention <= 0) {
-			System.out.println(this.name + " está completamente desfocado de sua tarefa");
+			condicao = " está completamente desfocado de sua tarefa";
 		}
+		return condicao;
 	}
 
 	public Personagem(String nome, int atencao) {

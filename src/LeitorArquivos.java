@@ -34,8 +34,8 @@ public class LeitorArquivos {
         // chave/titulo + historia + Personagem + Alteração, 
         // Escolha = 0 para inicio de criação 
 
-        if (data.matches("[a-zA-Z]+")) {
-          title = data;
+        if (data.startsWith("Titulo: ")) {
+          title = data.substring(8);
         } else if (data.startsWith("Historia: ")) {
           hist = data.substring(10);
 
@@ -58,7 +58,7 @@ public class LeitorArquivos {
         } else if (data.startsWith("Alteracao: ")) {
           changeA = Integer.parseInt(data.substring(12));
 
-          Cap cap = new Cap(hist, choice, perso, changeA);
+          Cap cap = new Cap(hist,title, choice, perso, changeA);
           caps.put(title, cap);
 
           // Reinicia as variáveis para ler o próximo capítulo
@@ -101,15 +101,15 @@ public class LeitorArquivos {
 
           count += 1;
           if (count == 1) {
-            caps.get("encontrododesastre").setChoices(choiceX);
+            caps.get("Encontro do Desastre").setChoices(choiceX);
           } else if (count == 2) {
-            caps.get("continua").setChoices(choiceX);
+            caps.get("Continua").setChoices(choiceX);
           } else if (count == 3) {
-            caps.get("ligacao").setChoices(choiceX);
+            caps.get("Ligacao").setChoices(choiceX);
           } else if (count == 4) {
-            caps.get("casamento").setChoices(choiceX);
+            caps.get("Casamento").setChoices(choiceX);
           } else if (count == 5) {
-            caps.get("missao").setChoices(choiceX);
+            caps.get("Missao").setChoices(choiceX);
           }
         }
       }
